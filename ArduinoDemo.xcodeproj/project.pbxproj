@@ -8,19 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		D0A386592AD086AC008138C8 /* ArduinoDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A386582AD086AC008138C8 /* ArduinoDemoApp.swift */; };
-		D0A3865B2AD086AC008138C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3865A2AD086AC008138C8 /* ContentView.swift */; };
-		D0A3865D2AD086AC008138C8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3865C2AD086AC008138C8 /* Item.swift */; };
+		D0A3865B2AD086AC008138C8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3865A2AD086AC008138C8 /* HomeView.swift */; };
 		D0A3865F2AD086AE008138C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3865E2AD086AE008138C8 /* Assets.xcassets */; };
 		D0A386622AD086AE008138C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A386612AD086AE008138C8 /* Preview Assets.xcassets */; };
+		D0A3866D2AD088E6008138C8 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3866C2AD088E6008138C8 /* HomeViewViewModel.swift */; };
+		D0A386702AD08DFE008138C8 /* LHNetworkHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D0A3866F2AD08DFE008138C8 /* LHNetworkHelpers */; };
+		D0A386722AD08DFE008138C8 /* LHSFSymbolsHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D0A386712AD08DFE008138C8 /* LHSFSymbolsHelpers */; };
+		D0A386742AD08DFE008138C8 /* LHTypeExtensionHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D0A386732AD08DFE008138C8 /* LHTypeExtensionHelpers */; };
+		D0A386762AD08DFE008138C8 /* LHUIHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = D0A386752AD08DFE008138C8 /* LHUIHelpers */; };
+		D0A386792AD09022008138C8 /* HomeLightControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A386782AD09022008138C8 /* HomeLightControlView.swift */; };
+		D0A3867C2AD093C4008138C8 /* HomeLightControlViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3867B2AD093C4008138C8 /* HomeLightControlViewViewModel.swift */; };
+		D0EA5F5A2AD155D600604BC5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EA5F592AD155D600604BC5 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D0A386552AD086AC008138C8 /* ArduinoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArduinoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A386582AD086AC008138C8 /* ArduinoDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduinoDemoApp.swift; sourceTree = "<group>"; };
-		D0A3865A2AD086AC008138C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D0A3865C2AD086AC008138C8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D0A3865A2AD086AC008138C8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D0A3865E2AD086AE008138C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0A386612AD086AE008138C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D0A3866C2AD088E6008138C8 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		D0A386782AD09022008138C8 /* HomeLightControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLightControlView.swift; sourceTree = "<group>"; };
+		D0A3867B2AD093C4008138C8 /* HomeLightControlViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLightControlViewViewModel.swift; sourceTree = "<group>"; };
+		D0EA5F592AD155D600604BC5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +38,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A386762AD08DFE008138C8 /* LHUIHelpers in Frameworks */,
+				D0A386702AD08DFE008138C8 /* LHNetworkHelpers in Frameworks */,
+				D0A386742AD08DFE008138C8 /* LHTypeExtensionHelpers in Frameworks */,
+				D0A386722AD08DFE008138C8 /* LHSFSymbolsHelpers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,9 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				D0A386582AD086AC008138C8 /* ArduinoDemoApp.swift */,
-				D0A3865A2AD086AC008138C8 /* ContentView.swift */,
-				D0A3865C2AD086AC008138C8 /* Item.swift */,
-				D0A3865E2AD086AE008138C8 /* Assets.xcassets */,
+				D0A386682AD0879D008138C8 /* Model */,
+				D0A386692AD087A4008138C8 /* Views */,
+				D0A3866A2AD087AA008138C8 /* ViewModels */,
+				D0A3866B2AD087B9008138C8 /* Resources */,
 				D0A386602AD086AE008138C8 /* Preview Content */,
 			);
 			path = ArduinoDemo;
@@ -68,6 +83,64 @@
 				D0A386612AD086AE008138C8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D0A386682AD0879D008138C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0EA5F582AD155C400604BC5 /* Network */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0A386692AD087A4008138C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0A386772AD08EDE008138C8 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D0A3866A2AD087AA008138C8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3867A2AD093AF008138C8 /* Home */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D0A3866B2AD087B9008138C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3865E2AD086AE008138C8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0A386772AD08EDE008138C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3865A2AD086AC008138C8 /* HomeView.swift */,
+				D0A386782AD09022008138C8 /* HomeLightControlView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D0A3867A2AD093AF008138C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3866C2AD088E6008138C8 /* HomeViewViewModel.swift */,
+				D0A3867B2AD093C4008138C8 /* HomeLightControlViewViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D0EA5F582AD155C400604BC5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D0EA5F592AD155D600604BC5 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +159,12 @@
 			dependencies = (
 			);
 			name = ArduinoDemo;
+			packageProductDependencies = (
+				D0A3866F2AD08DFE008138C8 /* LHNetworkHelpers */,
+				D0A386712AD08DFE008138C8 /* LHSFSymbolsHelpers */,
+				D0A386732AD08DFE008138C8 /* LHTypeExtensionHelpers */,
+				D0A386752AD08DFE008138C8 /* LHUIHelpers */,
+			);
 			productName = ArduinoDemo;
 			productReference = D0A386552AD086AC008138C8 /* ArduinoDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +193,9 @@
 				Base,
 			);
 			mainGroup = D0A3864C2AD086AC008138C8;
+			packageReferences = (
+				D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */,
+			);
 			productRefGroup = D0A386562AD086AC008138C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,8 +222,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0A3865B2AD086AC008138C8 /* ContentView.swift in Sources */,
-				D0A3865D2AD086AC008138C8 /* Item.swift in Sources */,
+				D0EA5F5A2AD155D600604BC5 /* NetworkManager.swift in Sources */,
+				D0A3865B2AD086AC008138C8 /* HomeView.swift in Sources */,
+				D0A3866D2AD088E6008138C8 /* HomeViewViewModel.swift in Sources */,
+				D0A386792AD09022008138C8 /* HomeLightControlView.swift in Sources */,
+				D0A3867C2AD093C4008138C8 /* HomeLightControlViewViewModel.swift in Sources */,
 				D0A386592AD086AC008138C8 /* ArduinoDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,14 +367,13 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leoho.ArduinoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leoho.arduino.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -311,14 +395,13 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leoho.ArduinoDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leoho.arduino.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,6 +431,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leoho0722/SwiftHelpers.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0A3866F2AD08DFE008138C8 /* LHNetworkHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */;
+			productName = LHNetworkHelpers;
+		};
+		D0A386712AD08DFE008138C8 /* LHSFSymbolsHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */;
+			productName = LHSFSymbolsHelpers;
+		};
+		D0A386732AD08DFE008138C8 /* LHTypeExtensionHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */;
+			productName = LHTypeExtensionHelpers;
+		};
+		D0A386752AD08DFE008138C8 /* LHUIHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A3866E2AD08DFE008138C8 /* XCRemoteSwiftPackageReference "SwiftHelpers" */;
+			productName = LHUIHelpers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0A3864D2AD086AC008138C8 /* Project object */;
 }
