@@ -7,7 +7,7 @@
 
 import Foundation
 
-import LHNetworkHelpers
+import SwiftHelpers
 
 final class NetworkManager: NSObject {
     
@@ -22,18 +22,6 @@ final class NetworkManager: NSObject {
         case invalidResponse
         
         case jsonDecodeFailed
-        
-        case invalidRequest     // statusCode 400
-        
-        case authorizationError // statusCode 401
-        
-        case notFound           // statusCode 404
-        
-        case internalError      // statusCode 500
-        
-        case serverError        // statusCode 502
-        
-        case serverUnavailable  // statusCode 503
     }
     
     /// 請求 API 資料
@@ -43,7 +31,7 @@ final class NetworkManager: NSObject {
     ///   - parameters: HTTP body 參數
     /// - Returns: HTTP Response
     func requestData<E, D>(with url: URL,
-                           method: HttpConstants.HttpMethod,
+                           method: HTTP.HTTPMethod,
                            parameters: E) async throws -> D where E: Encodable, D: Decodable {
         let request = createURLRequest(with: url, method: method, parameters: parameters)
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -52,7 +40,7 @@ final class NetworkManager: NSObject {
         }
         let statusCode = httpURLResponse.statusCode
         guard (200 ... 299).contains(statusCode) else {
-            throw NetworkError.invalidRequest
+            throw HTTP.HTTPStatus.badRequest
         }
         guard let result = try? JSONDecoder().decode(D.self, from: data) else {
             throw NetworkError.jsonDecodeFailed
@@ -67,16 +55,16 @@ final class NetworkManager: NSObject {
     ///   - parameters: HTTP body 參數
     /// - Returns: 帶有上述參數的URLRequest
     private func createURLRequest<E>(with url: URL,
-                                     method: HttpConstants.HttpMethod,
+                                     method: HTTP.HTTPMethod,
                                      parameters: E) -> URLRequest where E: Encodable {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = [
-            HttpConstants.HttpHeaderFields.contentType.rawValue : HttpConstants.HttpContentType.json.rawValue
+            HTTP.HTTPHeaderFields.contentType.rawValue : HTTP.HTTPContentType.json.rawValue
         ]
         
         if method != .get {
-            request.httpBody = try? JsonCoder.toJsonData(data: parameters)
+            request.httpBody = try? JSON.toJsonData(data: parameters)
         }
         
         return request

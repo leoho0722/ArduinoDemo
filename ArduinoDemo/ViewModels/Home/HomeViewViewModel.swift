@@ -7,7 +7,7 @@
 
 import Foundation
 
-import LHSFSymbolsHelpers
+import SwiftHelpers
 
 @Observable
 final class HomeViewViewModel {

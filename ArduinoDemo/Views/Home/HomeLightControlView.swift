@@ -8,7 +8,7 @@
 import Combine
 import SwiftUI
 
-import LHSFSymbolsHelpers
+import SwiftHelpers
 
 struct HomeLightControlView: View {
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-import LHSFSymbolsHelpers
+import SwiftHelpers
 
 struct HomeView: View {
     
