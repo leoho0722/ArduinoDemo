@@ -40,7 +40,7 @@ private extension HomeView {
     
     /// 建構 `與 Arduino 連線狀態的` Section
     @ViewBuilder
-     func buildArduinoConnectSection() -> some View {
+    func buildArduinoConnectSection() -> some View {
         Section {
             HStack {
                 Text(vm.connectState.statusTitle)
@@ -81,7 +81,7 @@ private extension HomeView {
     }
     
     @ViewBuilder
-     func buildLightControlSection(status: HomeViewViewModel.ConnectState) -> some View {
+    func buildLightControlSection(status: HomeViewViewModel.ConnectState) -> some View {
         Section {
             switch status {
             case .notConnected:

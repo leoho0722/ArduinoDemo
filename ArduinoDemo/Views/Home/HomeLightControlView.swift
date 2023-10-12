@@ -11,7 +11,7 @@ import SwiftUI
 import SwiftHelpers
 
 struct HomeLightControlView: View {
-
+    
     private let imgNameAry: [SFSymbols] = Array(repeating: .lightbulbFill, count: 6)
     
     @State private var vm = HomeLightControlViewViewModel()
