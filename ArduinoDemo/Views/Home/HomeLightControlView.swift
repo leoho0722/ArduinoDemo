@@ -42,7 +42,8 @@ extension HomeLightControlView {
     @ViewBuilder
     private func buildLightControl() -> some View {
         VStack {
-            if vm.chosedMarqueeEffect != .rightToLeft {
+            switch vm.chosedMarqueeEffect {
+            case .leftToRight:
                 HStack {
                     ForEach(imgNameAry.indices, id: \.self) { imgIndex in
                         Image(systemIcon: imgNameAry[imgIndex])
@@ -52,7 +53,7 @@ extension HomeLightControlView {
                             .foregroundStyle(imgIndex == currentLeftToRightIndex ? .red : .black)
                     }
                 }
-            } else {
+            case .rightToLeft:
                 HStack {
                     ForEach(imgNameAry.reversed().indices, id: \.self) { imgIndex in
                         Image(systemIcon: imgNameAry[imgIndex])
@@ -60,6 +61,16 @@ extension HomeLightControlView {
                             .scaledToFit()
                             .frame(width: 45, height: 45)
                             .foregroundStyle(imgIndex == currentRightToLeftIndex ? .red : .black)
+                    }
+                }
+            case .on, .off, .none:
+                HStack {
+                    ForEach(imgNameAry.indices, id: \.self) { imgIndex in
+                        Image(systemIcon: imgNameAry[imgIndex])
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 45, height: 45)
+                            .foregroundStyle(vm.chosedMarqueeEffect == .on ? .red : .black)
                     }
                 }
             }
@@ -87,6 +98,16 @@ extension HomeLightControlView {
                                                 }
                                             }
                                     }
+                                } catch {
+                                    print(error)
+                                    vm.chosedMarqueeEffect = .none
+                                    isPresentErrorAlert.toggle()
+                                }
+                            }
+                        case .on, .off:
+                            Task {
+                                do {
+                                    try await vm.send(effect: effect)
                                 } catch {
                                     print(error)
                                     vm.chosedMarqueeEffect = .none
