@@ -24,8 +24,8 @@ struct HomeView: View {
             }
         }
         .navigationTitle("Arduino Demo")
-        .onAppear {
-            vm.getConnectStatus()
+        .task {
+            await vm.getConnectStatus()
         }
     }
 }

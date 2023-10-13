@@ -29,13 +29,33 @@ final class HomeLightControlViewViewModel {
         
         var title: String {
             switch self {
-            case .none:
-                "尚未選擇"
-            case .leftToRight:
-                "跑馬燈效果 (右旋)"
-            case .rightToLeft:
-                "跑馬燈效果 (左旋)"
+            case .none: "尚未選擇"
+            case .leftToRight: "跑馬燈效果 (右旋)"
+            case .rightToLeft: "跑馬燈效果 (左旋)"
             }
         }
+        
+        var url: String {
+            switch self {
+            case .none: ""
+            case .leftToRight: "/light/right"
+            case .rightToLeft: "/light/left"
+            }
+        }
+    }
+    
+    func send(effect: MarqueeEffects) async throws {
+        guard effect != .none else {
+            return
+        }
+        let manager = NetworkManager.shared
+        let baseURL = "http://"
+        let ip = "192.168.1.212"
+        let url = URL(string: baseURL + ip + effect.url)!
+        let request = GeneralRequest()
+        let response: GeneralResponse = try await manager.requestData(with: url,
+                                                                             method: .get,
+                                                                             parameters: request)
+        print(response.status)
     }
 }

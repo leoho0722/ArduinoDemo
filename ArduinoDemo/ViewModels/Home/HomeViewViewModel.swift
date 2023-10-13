@@ -39,12 +39,30 @@ final class HomeViewViewModel {
     }
     
     /// 取得與 Arduino 的連線狀態
-    func getConnectStatus() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    func getConnectStatus() async {
+        DispatchQueue.main.async {
             self.connectState = .connecting
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.connectState = .connected
+        
+        let manager = NetworkManager.shared
+        let baseURL = "http://"
+        let ip = "192.168.1.212"
+        let path = "/connect"
+        let url = URL(string: baseURL + ip + path)!
+        let request = GeneralRequest()
+        
+        do {
+            let response: GeneralResponse = try await manager.requestData(with: url,
+                                                                          method: .get,
+                                                                          parameters: request)
+            print(response.status)
+            await MainActor.run {
+                self.connectState = .connected
+            }
+        } catch {
+            await MainActor.run {
+                self.connectState = .notConnected
+            }
         }
     }
 }

@@ -24,6 +24,8 @@ struct HomeLightControlView: View {
     
     @State private var timer: AnyCancellable?
     
+    @State private var isPresentErrorAlert: Bool = false
+    
     var body: some View {
         buildLightControl()
     }
@@ -73,13 +75,24 @@ extension HomeLightControlView {
                             currentRightToLeftIndex = 6
                             resetTimer()
                         case .leftToRight, .rightToLeft:
-                            timer = Timer.publish(every: 1, on: .main, in: .common)
-                                .autoconnect()
-                                .sink { _ in
-                                    withAnimation {
-                                        lightControl(with: effect)
+                            Task {
+                                do {
+                                    try await vm.send(effect: effect)
+                                    await MainActor.run {
+                                        timer = Timer.publish(every: 0.45, on: .main, in: .common)
+                                            .autoconnect()
+                                            .sink { _ in
+                                                withAnimation {
+                                                    lightControl(with: effect)
+                                                }
+                                            }
                                     }
+                                } catch {
+                                    print(error)
+                                    vm.chosedMarqueeEffect = .none
+                                    isPresentErrorAlert.toggle()
                                 }
+                            }
                         }
                     } label: {
                         Text(effect.title)
@@ -89,6 +102,9 @@ extension HomeLightControlView {
                 Text(vm.chosedMarqueeEffect.title)
             }
             .padding(.top)
+            .alert("Could not connect to the server.", isPresented: $isPresentErrorAlert) {
+                Button("Confirm") {}
+            }
         }
     }
 }
