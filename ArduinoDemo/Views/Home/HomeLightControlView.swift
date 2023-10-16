@@ -14,7 +14,7 @@ struct HomeLightControlView: View {
     
     private let imgNameAry: [SFSymbols] = Array(repeating: .lightbulbFill, count: 6)
     
-    @State private var vm = HomeLightControlViewViewModel()
+    private var vm = HomeLightControlViewViewModel()
     
     /// 用來判斷右旋的目前 Index
     @State private var currentLeftToRightIndex: Int = -1

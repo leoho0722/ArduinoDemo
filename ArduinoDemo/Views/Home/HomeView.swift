@@ -11,7 +11,7 @@ import SwiftHelpers
 
 struct HomeView: View {
     
-    @State private var vm = HomeViewViewModel()
+    private var vm = HomeViewViewModel()
     
     var body: some View {
         NavigationStack {
